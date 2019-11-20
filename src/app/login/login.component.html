@@ -1,0 +1,37 @@
+<!--Container principal-->
+<div class="container" style="padding-top: 5%;">
+  <!--Card login-->
+  <div class="card card-container shadow p-3 mb-5 bg-white rounded">
+    <!--Icone-->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <!--Formulario-->
+    <form class="form-signin" novalidate [formGroup]="formulario">
+      <!--Campo usuario-->
+      <div class="form-group">
+        <label for="exampleInputEmail1">Usuário</label>
+        <input type="text" class="form-control" id="usuario" placeholder="Informe seu usuário."
+          formControlName="usuario" (blur)="exibirErroCampoUsuario()">
+        <div *ngIf="erroUsuario" class="text-erro">
+          Informe um Usuário.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Informe sua senha." formControlName="senha"
+          (blur)="exibirErroCampoSenha()">
+        <div *ngIf="erroSenha" class="text-erro">
+          Informe uma Senha.
+        </div>
+      </div>
+      <div id="remember" class="checkbox">
+        <label>
+          <input type="checkbox" formControlName="lembrar"> Ficar conectado
+        </label>
+      </div>
+      <button class="btn btn-primary" type="submit" (click)="fazerLogin()">Entrar</button>
+    </form>
+    <a href="#" class="forgot-password">
+      Esqueceu a senha?
+    </a>
+  </div>
+</div>
