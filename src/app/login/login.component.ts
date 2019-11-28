@@ -12,10 +12,6 @@ export class LoginComponent implements OnInit {
 
   // Formulario de login
   formulario: FormGroup;
-  // Erro campo usuario
-  erroUsuario = false;
-  // Erro campo senha
-  erroSenha = false;
 
   constructor(
     private fb: FormBuilder,
@@ -42,34 +38,19 @@ export class LoginComponent implements OnInit {
     if (this.formulario.valid) {
       this.authService.fazerLogin();
     } else {
-      this.exibirErroCampoUsuario();
-      this.exibirErroCampoSenha();
+      this.validarCampo('usuario');
+      this.validarCampo('senha');
     }
   }
 
   /*
-   * Valida o campo usuario
+   * Valida o campos do formulario
    */
-  exibirErroCampoUsuario() {
-    const valorCampo = this.formulario.controls.usuario.value;
-    document.getElementById('usuario').classList.remove('invalid-feedback');
-    this.erroUsuario = false;
+  validarCampo(nmCampo: string) {
+    const valorCampo = this.formulario.get(nmCampo).value;
+    document.getElementById(nmCampo).classList.remove('is-invalid');
     if (valorCampo === '') {
-      document.getElementById('usuario').classList.add('invalid-feedback');
-      this.erroUsuario = true;
-    }
-  }
-
-  /*
-   * Valida o campo senha
-   */
-  exibirErroCampoSenha() {
-    const valorCampo = this.formulario.controls.senha.value;
-    document.getElementById('senha').classList.remove('invalid-feedback');
-    this.erroSenha = false;
-    if (valorCampo === '') {
-      document.getElementById('senha').classList.add('invalid-feedback');
-      this.erroSenha = true;
+      document.getElementById(nmCampo).classList.add('is-invalid');
     }
   }
 
