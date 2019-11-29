@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './guards/auth.service';
+import { ModalService } from './shared/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,13 @@ export class AppComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
   mostrarMenu: boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private modalService: ModalService) { }
 
   ngOnInit() {
     this.authService.mostrarMenuEmitter.subscribe(
       (mostrar: boolean) => {
-        console.log(mostrar);
         this.mostrarMenu = mostrar;
       }
     );
@@ -46,7 +48,15 @@ export class AppComponent implements OnInit {
    * Executa o logout do usuario
    */
   fazerLogout() {
-    this.authService.fazerLogout();
+
+    const resultado$ = this.modalService.exibirModalConfirmacao('Tem certeza que deseja realmente sair ?');
+    resultado$.asObservable().subscribe(
+      dados => {
+        if (dados) {
+          this.authService.fazerLogout();
+        }
+      }
+    );
   }
 
 }
