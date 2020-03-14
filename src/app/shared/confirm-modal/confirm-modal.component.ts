@@ -9,11 +9,8 @@ import { Subject } from 'rxjs';
 })
 export class ConfirmModalComponent implements OnInit {
 
-  @Input() title: string = "Sistema Predial";
+  @Input() title: string = "Sistema Predial - Confirmação";
   @Input() msg: string;
-  @Input() cancelTxt = 'Não';
-  @Input() okTxt = 'Sim';
-
   confirmResult: Subject<boolean>;
 
   constructor(public bsModalRef: BsModalRef) { }
@@ -22,17 +19,17 @@ export class ConfirmModalComponent implements OnInit {
     this.confirmResult = new Subject();
   }
 
+  private confirmAndClose(value: boolean) {
+    this.confirmResult.next(value);
+    this.bsModalRef.hide();
+  }
+
   onConfirm() {
     this.confirmAndClose(true);
   }
 
   onClose() {
     this.confirmAndClose(false);
-  }
-
-  private confirmAndClose(value: boolean) {
-    this.confirmResult.next(value);
-    this.bsModalRef.hide();
   }
 
 }

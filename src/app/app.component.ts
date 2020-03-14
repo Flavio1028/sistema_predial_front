@@ -48,8 +48,7 @@ export class AppComponent implements OnInit {
    * Executa o logout do usuario
    */
   fazerLogout() {
-
-    const resultado$ = this.modalService.exibirModalConfirmacao('Tem certeza que deseja realmente sair ?');
+    const resultado$ = this.modalService.modalConfirmacao('Tem certeza que deseja sair ?');
     resultado$.asObservable().subscribe(
       dados => {
         if (dados) {

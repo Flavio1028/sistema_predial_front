@@ -1,0 +1,82 @@
+<!-- BREADCRUMB -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" (click)="voltarHome()"><a href="javascript:void(0)">Início</a></li>
+    <li class="breadcrumb-item" (click)="voltarHomeEmpresa()"><a href="javascript:void(0)">Empresa</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
+  </ol>
+</nav>
+<div>
+  <p>Para cadastrar a empresa preencha os campos abaixo.</p>
+</div>
+<!-- FORMULARIO -->
+<form>
+  <!-- CAMPOS DADOS EMPRESA -->
+  <div class="row mt-2">
+    <!-- CNPJ -->
+    <div class="col">
+      <input type="text" mask="00.000.000/0000-00" class="form-control" placeholder="CNPJ">
+    </div>
+    <!-- RAZAO SOCIAL -->
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Razão Social">
+    </div>
+  </div>
+  <!-- CAMPOS TEMPERATURA EMPRESA -->
+  <div class="row mt-2">
+    <!-- TEMPERATURA MINIMA -->
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Temp miníma">
+    </div>
+    <!-- TEMPERATURA MAXIMA -->
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Temp máxima">
+    </div>
+  </div>
+  <!-- CAMPOS HORARIO FUNCIONAMENTO -->
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-sm label-horario">
+        <label>Horário Abertura: </label>
+      </div>
+      <div class="col-sm">
+        <timepicker [showMeridian]="false"></timepicker>
+      </div>
+      <div class="col-sm label-horario">
+        <label>Horário Fechamento: </label>
+      </div>
+      <div class="col-sm">
+        <timepicker [showMeridian]="false"></timepicker>
+      </div>
+    </div>
+
+  </div>
+
+</form>
+<div class="row">
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <bs-sortable [(ngModel)]="listaConjuntosDisponiveis" fieldName="name" itemClass="sortable-item"
+      itemActiveClass="sortable-item-active" placeholderItem="Arraste aqui" placeholderClass="placeholderStyle"
+      wrapperClass="sortable-wrapper"></bs-sortable>
+  </div>
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <bs-sortable [(ngModel)]="listaConjuntosAdicionados" fieldName="name" itemClass="sortable-item"
+      itemActiveClass="sortable-item-active" placeholderItem="Arraste aqui" placeholderClass="placeholderStyle"
+      wrapperClass="sortable-wrapper"></bs-sortable>
+  </div>
+</div>
+<!-- BOTOES  -->
+<div class="container mt-4 mb-3 mr-3">
+  <div class="row">
+    <div class="col text-right">
+      <button class="btn btn-dark mr-2" (click)="voltarHomeEmpresa()">
+        <i class="fas fa-arrow-circle-left"></i>
+        Voltar
+      </button>
+      <button class="btn btn-primary">
+        Cadastrar
+        <i class="fas fa-save"></i>
+      </button>
+    </div>
+  </div>
+</div>

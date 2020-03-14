@@ -4,7 +4,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 @Injectable()
 export class AuthService {
 
-  // tslint:disable-next-line: no-inferrable-types
+  /*
+   * Informa se o usuario esta autenticado
+   */
   private usuarioAutenticado: boolean = false;
 
   /*
@@ -22,9 +24,9 @@ export class AuthService {
   }
 
   fazerLogout() {
+    // Limpa os dados da sessao
+    sessionStorage.clear();
     this.mostrarMenuEmitter.emit(false);
-    this.usuarioAutenticado = false;
-    sessionStorage.setItem('sessaoAtiva', this.usuarioAutenticado + '');
     this.router.navigate(['/login']);
   }
 

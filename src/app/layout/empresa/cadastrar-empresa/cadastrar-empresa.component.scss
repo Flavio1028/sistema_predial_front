@@ -1,0 +1,10 @@
+.label-horario {
+  line-height: 5.9em;
+  //text-align: right;
+}
+
+@media (max-width: 500px) {
+  .label-horario {
+    text-align: left;
+  }
+}

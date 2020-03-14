@@ -8,8 +8,13 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
   imports: [
     CommonModule
   ],
-  declarations: [InfoModalComponent, ConfirmModalComponent],
-  entryComponents: [InfoModalComponent, ConfirmModalComponent],
-  exports: [InfoModalComponent, ConfirmModalComponent]
+  declarations: [
+    InfoModalComponent,
+    ConfirmModalComponent
+  ],
+  exports: [
+    InfoModalComponent,
+    ConfirmModalComponent
+  ]
 })
 export class SharedModule { }

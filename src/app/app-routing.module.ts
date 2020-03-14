@@ -1,4 +1,3 @@
-import { HomeComponent } from './layout/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -14,7 +13,10 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'home', component: HomeComponent, canActivate: [AuthGuard]
+    path: 'home', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'empresa', loadChildren: () => import('./layout/empresa/empresa.module').then(m => m.EmpresaModule), canActivate: [AuthGuard]
   },
   {
     path: '**', component: PaginaNaoEncontradaComponent

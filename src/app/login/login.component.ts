@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
             }
           });
           if (!valido) {
-            this.modalService.modalInfoErro("Usuário/Senha inválido(s).");
+           // this.modalService.modalInfoErro("Usuário/Senha inválido(s).");
           }
           this.spinner.hide();
         }

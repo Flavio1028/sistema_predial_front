@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "cnpj": "59404933000197",
+    "rzSocial": "Davi e Valentina Alimentos Ltda",
+    "dtCadastro": "11/03/2020",
+    "totConjunto": 5
+  },
+  {
+    "id": 2,
+    "cnpj": "28462346000120",
+    "rzSocial": "Raul e Edson Consultoria Financeira Ltda",
+    "dtCadastro": "11/03/2020",
+    "totConjunto": 1
+  }
+]

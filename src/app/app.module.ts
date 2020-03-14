@@ -6,10 +6,10 @@ import { NgModule } from '@angular/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { LoginComponent } from './login/login.component';
-import { LayoutModule } from './layout/layout.module';
 import { AuthService } from './guards/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { SharedModule } from './shared/shared.module';
@@ -24,11 +24,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    LayoutModule,
     HttpClientModule,
     NgxSpinnerModule,
     ModalModule.forRoot(),
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,
