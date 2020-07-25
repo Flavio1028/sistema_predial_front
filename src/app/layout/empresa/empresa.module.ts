@@ -5,24 +5,22 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgxMaskModule } from 'ngx-mask';
 
-import { EmpresaRoutingModule } from './empresa-routing.module';
-import { HomeEmpresaComponent } from './home-empresa/home-empresa.component';
 import { CadastrarEmpresaComponent } from './cadastrar-empresa/cadastrar-empresa.component';
-import { FormsModule } from '@angular/forms';
+import { HomeEmpresaComponent } from './home-empresa/home-empresa.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmpresaRoutingModule } from './empresa-routing.module';
 
 @NgModule({
-  declarations: [
-    HomeEmpresaComponent,
-    CadastrarEmpresaComponent
-  ],
+  declarations: [HomeEmpresaComponent, CadastrarEmpresaComponent],
   imports: [
     CommonModule,
     EmpresaRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
+    TimepickerModule.forRoot(),
     PaginationModule.forRoot(),
     NgxMaskModule.forRoot(),
-    TimepickerModule.forRoot(),
-    SortableModule.forRoot()
-  ]
+    SortableModule.forRoot(),
+  ],
 })
-export class EmpresaModule { }
+export class EmpresaModule {}
